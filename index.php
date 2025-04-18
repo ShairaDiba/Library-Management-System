@@ -12,11 +12,11 @@ session_start();
     <script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
-    #main_content {
+    #main_content{
         padding: 50px;
         background-color: whitesmoke;
     }
-    #side_bar {
+    #side_bar{
         background-color: whitesmoke;
         padding: 50px;
         width: 300px;
@@ -109,13 +109,12 @@ session_start();
                         
                         if ($role == 'Student') {
                             $_SESSION['id'] = $row['student_id'];
-                            $_SESSION['role'] = 'Student';
-                            header("Location: user_dashboard.php");
                         } else if ($role == 'Faculty') {
                             $_SESSION['id'] = $row['faculty_id'];
-                            $_SESSION['role'] = 'Faculty';
-                            header("Location: faculty.php"); // Redirect to faculty-specific dashboard
                         }
+
+                        // Redirect to user dashboard (Student or Faculty)
+                        header("Location: user_dashboard.php");
                     } else {
                         ?>
                         <br><br><center><span class="alert-danger">Wrong Password !!</span></center>
